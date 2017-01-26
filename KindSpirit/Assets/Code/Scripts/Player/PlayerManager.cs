@@ -44,7 +44,7 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
 #if UNITY_EDITOR
         DebugControls();
 #endif
-        UpdateDirection();
+        //UpdateDirection();
 
     }
 
