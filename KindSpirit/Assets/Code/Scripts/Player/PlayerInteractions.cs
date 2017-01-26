@@ -14,28 +14,12 @@ public class PlayerInteractions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (playerManager.controlStyle)
-        {
-            case PlayerManager.ControlStyle.MatchDirections:
-                MatchDirectionInteractions();
-                break;
-            case PlayerManager.ControlStyle.TwinStick:
-                TwinStickInteractions();
-                break;
-            default:
-                Debug.LogError("No valid control style enabled on player");
-                break;
-        }
+        DirectionalAttacks();
     }
 
-    void MatchDirectionInteractions()
+    void DirectionalAttacks()
     {
-
-    }
-
-    void TwinStickInteractions()
-    {
-
+        
     }
 
     void MeleeAttack()

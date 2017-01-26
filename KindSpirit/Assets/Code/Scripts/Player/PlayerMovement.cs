@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FlipSprite()
     {
-        //TODO: Take another look at this with animations to make sure we are flipping sprites appropriately
+        //TODO: This will most likely be removed when the animations for the player are added
 
         // Get the input for left/right motion
 
@@ -54,9 +54,5 @@ public class PlayerMovement : MonoBehaviour
             playerSpriteRenderer.flipX = horizontalMovement > 0;
         }
 
-        if (Mathf.Abs(horizontalMovement) > Mathf.Abs(horizontalMovement))
-        {
-
-        }
     }
 }

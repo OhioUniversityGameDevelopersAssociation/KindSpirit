@@ -32,6 +32,7 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
     // Used by all other player scripts to position and animate attacks correctly
     [HideInInspector]
     public Vector2 attackDirection;
+    [HideInInspector]
     public Vector2 movementDirection;
 
     private void Awake()
@@ -44,7 +45,7 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
 #if UNITY_EDITOR
         DebugControls();
 #endif
-        //UpdateDirection();
+        UpdateDirections();
 
     }
 
@@ -100,6 +101,11 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
     {
         movementSpeed += upgradeAmount;
         Debug.Log("Movement Speed: " + movementSpeed);
+    }
+
+    void UpdateDirections()
+    {
+        //Do the cut vector thing
     }
 
     void DebugControls() // Used to control input values mid game, should only be usable during development
