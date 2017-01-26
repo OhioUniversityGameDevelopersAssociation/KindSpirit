@@ -7,12 +7,10 @@
  * 
  * **************************************/
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable<int> {
+public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable<int>
+{
 
     // All fields regarding player stats are private 
     // and must only be changed by items / events and
@@ -31,6 +29,11 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
     private float movementSpeed = 5.0f;
     public float MovementSpeed { get { return movementSpeed; } }
 
+    // Used by all other player scripts to position and animate attacks correctly
+    [HideInInspector]
+    public Vector2 attackDirection;
+    public Vector2 movementDirection;
+
     private void Awake()
     {
         health = maxHealth;
@@ -41,6 +44,8 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
 #if UNITY_EDITOR
         DebugControls();
 #endif
+        UpdateDirection();
+
     }
 
     public void UpgradeHealth(int upgradeAmount)
@@ -56,7 +61,7 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
     public void Heal(int regen)
     {
         health += regen;
-        
+
         if (health > maxHealth)
             health = maxHealth;
 
