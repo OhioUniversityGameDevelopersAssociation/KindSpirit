@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 38469324}
   m_Layer: 0
   m_Name: Temp Left Wall
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 124273376}
   m_Layer: 0
   m_Name: Temp Top Wall
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 237179428}
   m_Layer: 0
   m_Name: Rock (3)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 524068926}
   m_Layer: 0
   m_Name: Rock (7)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 674364257}
   m_Layer: 0
   m_Name: Rock (6)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 703593404}
   m_Layer: 0
   m_Name: Rock (2)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -447,7 +447,7 @@ GameObject:
   - component: {fileID: 893004376}
   m_Layer: 0
   m_Name: Rock
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -459,7 +459,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 893004374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.16, y: 0.06, z: 0}
+  m_LocalPosition: {x: -4.16, y: 0.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1770675378}
@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 1329991810}
   m_Layer: 0
   m_Name: Temp Right Wall
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 1348679700}
   m_Layer: 0
   m_Name: Rock (5)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 1611003199}
   m_Layer: 0
   m_Name: Rock (1)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 1827335624}
   m_Layer: 0
   m_Name: Temp Bottom Wall
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -821,11 +821,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4621098132174532, guid: 4eb0f79567548b042a4192ddfc528f38, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.21
+      value: -6.2
       objectReference: {fileID: 0}
     - target: {fileID: 4621098132174532, guid: 4eb0f79567548b042a4192ddfc528f38, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.17
+      value: 3.01
       objectReference: {fileID: 0}
     - target: {fileID: 4621098132174532, guid: 4eb0f79567548b042a4192ddfc528f38, type: 2}
       propertyPath: m_LocalPosition.z
@@ -885,7 +885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d091858d347522348a6ecb33b57e6829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 0.1
   blockingLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -948,7 +947,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947859099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalPosition: {x: 5.88, y: -2.26, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -999,7 +998,7 @@ GameObject:
   - component: {fileID: 1948527060}
   m_Layer: 0
   m_Name: Rock (4)
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
