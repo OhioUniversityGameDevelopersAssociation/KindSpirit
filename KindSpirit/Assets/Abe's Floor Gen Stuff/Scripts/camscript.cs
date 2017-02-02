@@ -62,8 +62,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.right*spd*Time.deltaTime);
-					anton.transform.Translate(Vector3.right*spd*Time.deltaTime);
+					transform.Translate(Vector3.right*spd*3.2f*Time.deltaTime);
+					anton.transform.Translate(Vector3.right*spd*0.8f*Time.deltaTime);
 				}
 				else{
 					state = 1;
@@ -79,8 +79,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.down*spd*Time.deltaTime);
-					anton.transform.Translate(Vector3.down*spd*Time.deltaTime);
+					transform.Translate(Vector3.down*spd*3.2f*Time.deltaTime);
+					anton.transform.Translate(Vector3.down*spd*0.8f*Time.deltaTime);
 				}
 				else{
 					state = 1;
@@ -96,8 +96,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.left*spd*Time.deltaTime);
-					anton.transform.Translate(Vector3.left*spd*Time.deltaTime);
+					transform.Translate(Vector3.left*spd*3.2f*Time.deltaTime);
+					anton.transform.Translate(Vector3.left*spd*0.8f*Time.deltaTime);
 				}
 				else{
 					state = 1;
@@ -113,8 +113,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.up*spd*Time.deltaTime);
-					anton.transform.Translate(Vector3.up*spd*Time.deltaTime);
+					transform.Translate(Vector3.up*spd*3.2f*Time.deltaTime);
+					anton.transform.Translate(Vector3.up*spd*0.8f*Time.deltaTime);
 				}
 				else{
 					state = 1;

@@ -26,7 +26,7 @@ public class doorscript : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "Player"){
+		if(rend.sprite != null && other.gameObject.tag == "Player"){
 			if(other.gameObject.GetComponent<PlayerScript>().act){
 				other.gameObject.GetComponent<PlayerScript>().act = false;
 				GameObject.Find("Main Camera").GetComponent<camscript>().state = dir_state;
