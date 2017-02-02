@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public interface IKillable
+﻿public interface IKillable
 {
     void Kill();
 }
@@ -15,4 +11,14 @@ public interface IDamagable<T>
 public interface Healable<T>
 {
     void Heal(T regen);
+}
+
+public interface IInteractable
+{
+    void Interact();
+}
+
+public interface IInteractable<T>
+{
+    void Interact(T interactionParam);
 }
