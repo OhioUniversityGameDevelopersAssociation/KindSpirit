@@ -1,9 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿/**************************************
+ * Created By: Andrew Decker
+ * 
+ * Basic Movement Script for any 2D player character.
+ * Developed for Kind Spirit, but can work for any 2D
+ * Character System so long as it also has Player Manager,
+ * a Sprite Renderer, and a Rigidbody2D attached.
+ * 
+ * ***********************************/
+
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMovement : MonoBehaviour {
+[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(PlayerManager))]
+public class PlayerMovement : MonoBehaviour
+{
 
     private PlayerManager playerManager;
     private Rigidbody2D playerRB;                   // Used to move the player
@@ -11,21 +22,20 @@ public class PlayerMovement : MonoBehaviour {
     private SpriteRenderer playerSpriteRenderer;    // Used in re-orienting sprite based on movement
 
     // Use this for initialization
-    void Start ()
+    private void Start()
     {
         // Set up any necesary references
         playerManager = GetComponent<PlayerManager>();
         playerRB = GetComponent<Rigidbody2D>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+    }
+
+    // Fixed Update is called once per physics frame
+    private void FixedUpdate()
     {
         // Take in movement from the controller and multiply the movement speed by the player speed
-        move.x = playerRB.position.x + (Input.GetAxis("Horizontal") * Time.fixedDeltaTime * playerManager.MovementSpeed);
-        move.y = playerRB.position.y + (Input.GetAxis("Vertical") * Time.fixedDeltaTime * playerManager.MovementSpeed);
-        
+        move.x = playerRB.position.x + (playerManager.MovementDirection.x * Time.fixedDeltaTime * playerManager.MovementSpeed);
+        move.y = playerRB.position.y + (playerManager.MovementDirection.y * Time.fixedDeltaTime * playerManager.MovementSpeed);
         // Apply motion
         playerRB.MovePosition(move);
 
@@ -33,13 +43,15 @@ public class PlayerMovement : MonoBehaviour {
         FlipSprite();
     }
 
+    //TODO: We'll probably need to toss this function and replace it with an animation function
     void FlipSprite()
     {
+
+
         // Get the input for left/right motion
-        float h = Input.GetAxis("Horizontal");
 
         // If we aren't moving left or right ..
-        if (h == 0)
+        if (playerManager.MovementDirection.x == 0)
         {
             // .. don't do anything
             return;
@@ -47,7 +59,9 @@ public class PlayerMovement : MonoBehaviour {
         else // ..otherwise,
         {
             // .. change the sprite direction appropriately
-            playerSpriteRenderer.flipX = h > 0;
+            playerSpriteRenderer.flipX = playerManager.MovementDirection.x > 0;
         }
+
     }
+
 }
