@@ -6,7 +6,7 @@ public class camscript : MonoBehaviour {
 
 	public GameObject current_room;
 	public GameObject anton;
-	public float boundary = 2.5f;
+	public float boundary = 4.5f;
 	RoomStats rm;
 	public int state;
 	
@@ -35,23 +35,24 @@ public class camscript : MonoBehaviour {
 			transform.position = anton.transform.position;
 			float new_x = transform.position.x;
 			float new_y = transform.position.y;
-			float bound = boundary;
+			float boundx = 8f;
+			float boundy = 4.5f;
+			float bound = 1f;
 			//Make sure camera doesn't leave left boundary
-			if(transform.position.x < (current_room.transform.position.x+boundary)){new_x = current_room.transform.position.x+boundary;}
+			if(transform.position.x < (current_room.transform.position.x+boundx)){new_x = current_room.transform.position.x+boundx;}
 			//Make sure camera doesn't leave right boundary
 			else{
-				bound = boundary;
-				if(rm.width == 1){bound = boundary;}
-				else{bound = boundary*((rm.width*2)-1);}
+				if(rm.width == 1){bound = boundx;}
+				else{bound = boundx*((rm.width*2)-1);}
 				if(transform.position.x > (current_room.transform.position.x+bound)){new_x = current_room.transform.position.x+bound;}
 			}
 			//Make sure camera doesn't leave upper boundary
-			if(transform.position.y > (current_room.transform.position.y-boundary)){new_y = current_room.transform.position.y-boundary;}
+			if(transform.position.y > (current_room.transform.position.y-boundy)){new_y = current_room.transform.position.y-boundy;}
 			//Make sure camera doesn't leave lower boundary
 			else{
-				bound = boundary;
-				if(rm.length == 1){bound = -1*boundary;}
-				else{bound = -1*boundary*((rm.length*2)-1);}
+				bound = boundy;
+				if(rm.length == 1){bound = -1*boundy;}
+				else{bound = -1*boundy*((rm.length*2)-1);}
 				if(transform.position.y < (current_room.transform.position.y+bound)){new_y = current_room.transform.position.y+bound;}
 			}
 			transform.position = new Vector3(new_x,new_y, -10f);
@@ -62,8 +63,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.right*spd*3.2f*Time.deltaTime);
-					anton.transform.Translate(Vector3.right*spd*0.8f*Time.deltaTime);
+					transform.Translate(Vector3.right*spd*10.2f*Time.deltaTime);
+					anton.transform.Translate(Vector3.right*spd*2.5f*Time.deltaTime);
 				}
 				else{
 					state = 1;
@@ -79,8 +80,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.down*spd*3.2f*Time.deltaTime);
-					anton.transform.Translate(Vector3.down*spd*0.8f*Time.deltaTime);
+					transform.Translate(Vector3.down*spd*10.2f*(9.0f/16.0f)*Time.deltaTime);
+					anton.transform.Translate(Vector3.down*spd*3f*(9.0f/16.0f)*Time.deltaTime);
 				}
 				else{
 					state = 1;
@@ -96,8 +97,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.left*spd*3.2f*Time.deltaTime);
-					anton.transform.Translate(Vector3.left*spd*0.8f*Time.deltaTime);
+					transform.Translate(Vector3.left*spd*10.2f*Time.deltaTime);
+					anton.transform.Translate(Vector3.left*spd*2.5f*Time.deltaTime);
 				}
 				else{
 					state = 1;
@@ -113,8 +114,8 @@ public class camscript : MonoBehaviour {
 			else{
 				if(move_timer < 50){
 					move_timer += 1;
-					transform.Translate(Vector3.up*spd*3.2f*Time.deltaTime);
-					anton.transform.Translate(Vector3.up*spd*0.8f*Time.deltaTime);
+					transform.Translate(Vector3.up*spd*10.2f*(9.0f/16.0f)*Time.deltaTime);
+					anton.transform.Translate(Vector3.up*spd*3f*(9.0f/16.0f)*Time.deltaTime);
 				}
 				else{
 					state = 1;

@@ -72,7 +72,7 @@ public class FloorPlan : MonoBehaviour {
 			}
 		}
 		GameObject nroom = Instantiate(attempt);
-		nroom.transform.position = new Vector3(cur_x*5,cur_y*-5,0);
+		nroom.transform.position = new Vector3(cur_x*16,cur_y*-9,0);
 		RoomStats new_stats = nroom.GetComponent<RoomStats>();
 		new_stats.x = cur_x+1;
 		new_stats.y = cur_y+1;

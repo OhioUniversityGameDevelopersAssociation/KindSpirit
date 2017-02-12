@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+public class node{
+	
+}
+
+
 [System.Serializable]
 public class Column{
-	public int[] row = new int[9];
-	public int[] row2 = new int[18];
-	public int[] row3 = new int[27];
+	public bool[] row;
 }
 
 public class RoomStats : MonoBehaviour {
@@ -28,9 +31,7 @@ public class RoomStats : MonoBehaviour {
 	public List<GameObject> neighbors = new List<GameObject>();
 	
 	//Create 3 different arrays of collumns of differing sizes, only using the one that correlates to the number of collumns
-	public Column[] column = new Column[16];
-	public Column[] column2 = new Column[32];
-	public Column[] column3 = new Column[48];
+	public Column[] column;
 	
 	
 	
@@ -39,34 +40,11 @@ public class RoomStats : MonoBehaviour {
 	public bool IsObstacle(int x, int y){
 		//Choose the correct collumn array based on width
 		Column[] correct = column;
-		switch (width){
-			case 1:
-				correct = column;
-			break;	
-			case 2:
-				correct = column2; 
-			break;
-			case 3:
-				correct = column3;
-			break;
-		}
 		
-		int check = 0;
-		//Choose the correct row array based on length
-		switch (length){
-			case 1:
-				check = correct[x].row[y];
-			break;	
-			case 2:
-				check = correct[x].row2[y]; 
-			break;
-			case 3:
-				check = correct[x].row3[y];
-			break;
-		}
 		
-		if(check == 1){return true;}
-		else{return false;}
+		bool check = correct[x].row[y];
+		
+		return check;
 		
 	}
 	
