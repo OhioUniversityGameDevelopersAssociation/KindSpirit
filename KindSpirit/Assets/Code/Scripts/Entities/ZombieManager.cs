@@ -40,60 +40,7 @@ public class ZombieManager : MonoBehaviour {
 
 
 		}
-	void testabegridsys()
-	{
-		bool obstacleishereyo = transform.parent.gameObject.GetComponent <RoomStats>().IsObstacle (5,5);
-		Debug.Log (obstacleishereyo);
-		//to "place object" manually change the grid zeros to ones
-		Vector2 coordinates = transform.parent.gameObject.GetComponent <RoomStats>().GetCoordinates (this.gameObject);
-		Debug.Log (coordinates.x.ToString() + "  , "+coordinates.y.ToString() );
-	}
-	void MoveinGrid()
-	{
-		/*
-		 Vector2 vec = target.position.x - transform.position.x;
-		 if(vec.magnitude <= .9f)
-		 //dont move, zombie has arrived at player location */
-		if (target.position.x < transform.position.x) {
-			Debug.Log ("player is to the left");
-			goRight = false;
-		} else if (target.position.x > transform.position.x) {
-			Debug.Log ("player is to the right");
-			goRight = true;
-		} 
-		Vector2 vec = target.position - transform.position;
-
-		//if (vec.x <= .9f) {
-		//player is in line with zombie, based on x/y pos
-		//go up/down
-
-		if (target.position.y < transform.position.y) {
-			Debug.Log ("player is below");
-			goUp = false;
-		} else if (target.position.y > transform.position.y) {
-			Debug.Log ("player is above");
-			goUp = true;
-		} 
-		//Try to go up or down, based on player location 
-		if (goUp) {
-			//check to see if there is obstacle in that square
-			newPos.Set (transform.position.x, transform.position.y + moveDistance);
-			rb2D.MovePosition (newPos); //move one square up
-		} else { //go left
-			newPos.Set (transform.position.x, transform.position.y - moveDistance);
-			rb2D.MovePosition (newPos); //move one square down
-		}
-			
-		//Try to go left or right, based on player location 
-		if (goRight) {
-			//check to see if there is obstacle in that square
-			newPos.Set (transform.position.x + moveDistance, transform.position.y);
-			rb2D.MovePosition (newPos); //move one square to the right
-		} else { //go left
-			newPos.Set (transform.position.x - moveDistance, transform.position.y);
-			rb2D.MovePosition (newPos); //move one square to the left
-		}
-	}
+		
 	void Update()
 	{
 		//MoveinGrid ();
@@ -103,7 +50,6 @@ public class ZombieManager : MonoBehaviour {
 		} else {
 			Wander ();
 		}
-		testabegridsys ();
 	}
 	public void Wander()
 	{

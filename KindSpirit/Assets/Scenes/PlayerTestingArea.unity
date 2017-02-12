@@ -863,10 +863,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1947859103}
   - component: {fileID: 1947859102}
-  - component: {fileID: 1947859101}
-  - component: {fileID: 1947859100}
   - component: {fileID: 1947859104}
   - component: {fileID: 1947859105}
+  - component: {fileID: 1947859101}
+  - component: {fileID: 1947859100}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -885,12 +885,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d091858d347522348a6ecb33b57e6829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveTime: 0.1
   blockingLayer:
     serializedVersion: 2
     m_Bits: 0
   playerDamage: 0
-  speed: 1
+  speed: 0.7
   goRight: 0
   goUp: 0
 --- !u!114 &1947859101
