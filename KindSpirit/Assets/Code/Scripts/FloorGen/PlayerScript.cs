@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour {
 	
 	
 	
-	
+	//Adjust the current room when we collide with a wall
 	void OnTriggerEnter2D(Collider2D other){
 		if(other.gameObject.tag == "wall"){
 			current_room = other.gameObject.transform.parent.gameObject;
