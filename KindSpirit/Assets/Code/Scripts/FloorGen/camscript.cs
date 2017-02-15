@@ -20,7 +20,7 @@ public class camscript : MonoBehaviour {
 	void Start () {
 		current_room = GameObject.Find("starting_room");
 		SetStats();
-//		anton = GameObject.Find("anton");
+		anton = GameObject.Find("anton");
 		state = 1;
 	}
 	
