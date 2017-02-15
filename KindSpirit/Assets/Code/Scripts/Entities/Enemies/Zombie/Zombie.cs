@@ -1,42 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Zombie : MonoBehaviour, IKillable, IDamagable<int> {
-	private int health;
-	public int Health { get { return health; } }
+public class Zombie : MonoBehaviour, IKillable, IDamagable<int>
+{
+    private int health;
+    public int Health { get { return health; } }
 
-	// Player Max Health
-	[SerializeField]
-	private int maxHealth = 10;
-	public int MaxHealth { get { return maxHealth; } }
+    // Player Max Health
+    [SerializeField]
+    private int maxHealth = 10;
+    public int MaxHealth { get { return maxHealth; } }
 
-	[SerializeField]
-	private float movementSpeed = 5.0f;
-	public float MovementSpeed { get { return movementSpeed; } }
+    [SerializeField]
+    private float movementSpeed = 5.0f;
+    public float MovementSpeed { get { return movementSpeed; } }
 
-	private void Awake()
-	{
-		health = maxHealth;
-	}
+    private void Awake()
+    {
+        health = maxHealth;
+    }
 
-	public void Kill()
-	{
-		// Die!
-		health = 0;
-		Debug.Log("Zombie has died.");
-	}
-	public void Damage(int damageTaken)
-	{
-		health -= damageTaken;
+    public void Kill()
+    {
+        // Die!
+        health = 0;
+        Destroy(gameObject);
+        Debug.Log("Zombie has died.");
+    }
+    public void Damage(int damageTaken)
+    {
+        health -= damageTaken;
 
-		Debug.Log("Zombie damage taken: " + damageTaken + "    Zombie current Health: " + health);
+        Debug.Log("Zombie damage taken: " + damageTaken + "    Zombie current Health: " + health);
 
-		if (health <= 0)
-		{
-			Kill();
-		}
-	}
+        if (health <= 0)
+        {
+            Kill();
+        }
+    }
 
 
 }
