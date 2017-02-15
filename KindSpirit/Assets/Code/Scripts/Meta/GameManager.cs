@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log ("Floor Completed");
 	}
-	public void GenerationComplete()
+	public void GenerationComplete() //Ran by FloorPlan when it is done building a floor.
 	{
 		Debug.Log("Spawn Player, Fade in.");
 		player = GameObject.Find ("Anton");
@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
-		healthText.GetComponent<Text> ().text = "Health: " + player.GetComponent<PlayerManager>().Health.ToString ();
+		if(healthText)
+		{
+			healthText.GetComponent<Text> ().text = "Health: " + player.GetComponent<PlayerManager>().Health.ToString ();
+		}
 	}
 
 
