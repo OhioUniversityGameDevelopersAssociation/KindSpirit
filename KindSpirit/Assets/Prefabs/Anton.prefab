@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 50169758498006310}
   - component: {fileID: 114739383390197056}
   - component: {fileID: 114475255883672470}
+  - component: {fileID: 114724908132339020}
   m_Layer: 0
   m_Name: Anton
   m_TagString: Player
@@ -104,6 +105,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 578a6b2d38c3dc14c8ff8aa11ece63bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114724908132339020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953983717080154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f5c784d5ea5704da0c9336af5244c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meleeActive: 1
+  meleeCooldown: 0.5
+  rangedCooldown: 0.3
+  AOECooldown: 5
+  tempMeleeCollider: {fileID: 0}
+  tempAOECollider: {fileID: 0}
 --- !u!114 &114739383390197056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   movementSpeed: 5
+  playerControlEnabled: 1
 --- !u!212 &212926688585808852
 SpriteRenderer:
   m_ObjectHideFlags: 1
