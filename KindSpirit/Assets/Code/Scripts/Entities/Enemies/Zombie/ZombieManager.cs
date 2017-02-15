@@ -150,6 +150,10 @@ public class ZombieManager : MonoBehaviour {
 
 			//}
 		}
+		if (coll.gameObject.tag == "Player") 
+		{
+			coll.gameObject.GetComponent<PlayerManager> ().Damage (1);
+		}
 	}
 
 
