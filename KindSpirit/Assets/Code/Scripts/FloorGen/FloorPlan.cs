@@ -10,7 +10,12 @@ public class FloorPlan : MonoBehaviour {
 	int cur_x;
 	int cur_y;
 	public bool trigger_create;
-	
+	GameObject gameManager; //The object containing the gamemanager script.
+
+	void Start()
+	{
+		gameManager = GameObject.Find ("GameManager");
+	}
 	
 	void Update(){
 		if(trigger_create){
@@ -56,6 +61,7 @@ public class FloorPlan : MonoBehaviour {
 			}
 			f += 1;
 		}
+		gameManager.GetComponent<GameManager> ().GenerationComplete ();
 	}
 
 	void Place_New_Room(){
