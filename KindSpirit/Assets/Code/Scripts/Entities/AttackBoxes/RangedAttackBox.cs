@@ -12,6 +12,12 @@ public class RangedAttackBox : AttackBox {
         Destroy(gameObject, lifeSpan /*TODO: Add in time for destroy animation*/);
     }
 
+    protected override void OnCollisionEnter2D(Collision2D col)
+    {
+        base.OnCollisionEnter2D(col);
+        Destroy(gameObject);
+    }
+
     protected override void Attack(IDamagable<int> other)
     {
         other.Damage(attackPower);
