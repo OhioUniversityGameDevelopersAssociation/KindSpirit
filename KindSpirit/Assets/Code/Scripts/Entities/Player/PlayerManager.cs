@@ -62,12 +62,14 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
 
     private void FixedUpdate()
     {
-        UpdateMovementVariables();
+        if (playerControlEnabled)
+            UpdateMovementVariables();
     }
 
     private void Update()
     {
-        UpdateAttackVariables();
+        if (playerControlEnabled)
+            UpdateAttackVariables();
 
 #if UNITY_EDITOR
         DebugControls();

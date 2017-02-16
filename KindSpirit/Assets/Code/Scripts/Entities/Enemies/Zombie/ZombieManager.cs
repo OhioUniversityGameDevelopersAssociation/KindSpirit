@@ -125,6 +125,7 @@ public class ZombieManager : MonoBehaviour {
 		return (a.x > b.x);
 	}
 	public void OnCollisionEnter2D(Collision2D coll) {
+		Debug.Log ("Collision.");
 		if (coll.gameObject.tag == "Environment") 
 		{
 			//move around the obstacle
@@ -150,6 +151,10 @@ public class ZombieManager : MonoBehaviour {
 
 			//}
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D coll) //If the zombie enters the player's hurtbox. Damage him.
+	{
 		if (coll.gameObject.tag == "Player") 
 		{
 			coll.gameObject.GetComponent<PlayerManager> ().Damage (1);

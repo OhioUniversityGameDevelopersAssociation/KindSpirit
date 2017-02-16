@@ -20,7 +20,7 @@ public class camscript : MonoBehaviour {
 	void Start () {
 		current_room = GameObject.Find("starting_room");
 		SetStats();
-		anton = GameObject.Find("anton");
+		anton = GameObject.Find("Anton");
 		state = 1;
 	}
 	
@@ -70,7 +70,7 @@ public class camscript : MonoBehaviour {
 					state = 1;
 					pause_timer = 0;
 					move_timer = 0;
-					anton.GetComponent<PlayerScript>().act = true;
+					anton.GetComponent<PlayerManager>().EnablePlayerControl();
 				}
 			}
 		}
@@ -87,7 +87,7 @@ public class camscript : MonoBehaviour {
 					state = 1;
 					pause_timer = 0;
 					move_timer = 0;
-					anton.GetComponent<PlayerScript>().act = true;
+					anton.GetComponent<PlayerManager>().EnablePlayerControl();
 				}
 			}
 		}
@@ -104,7 +104,7 @@ public class camscript : MonoBehaviour {
 					state = 1;
 					pause_timer = 0;
 					move_timer = 0;
-					anton.GetComponent<PlayerScript>().act = true;
+					anton.GetComponent<PlayerManager>().EnablePlayerControl();
 				}
 			}
 		}
@@ -121,7 +121,7 @@ public class camscript : MonoBehaviour {
 					state = 1;
 					pause_timer = 0;
 					move_timer = 0;
-					anton.GetComponent<PlayerScript>().act = true;
+					anton.GetComponent<PlayerManager>().EnablePlayerControl();
 				}
 			}
 		}
