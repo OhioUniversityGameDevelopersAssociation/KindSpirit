@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 	Vector2 stairLocation; //X,Y location of stairs on previous floor. Starting from top left.
 	GameObject healthText; //The gameobject holding the health UI text.
 	GameObject player; //The player's gameobject.
+	static public GameObject messageObject; //reference to message box to display text about objects
 
 	void Start()
 	{
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
 		Debug.Log("Spawn Player, Fade in.");
 		player = GameObject.Find ("Anton");
 		healthText = GameObject.Find ("HealthText");
+		messageObject = GameObject.Find ("messagebox");
+		Debug.Log (messageObject);
+
 	}
 
 	void Update()
@@ -32,7 +36,6 @@ public class GameManager : MonoBehaviour
 			healthText.GetComponent<Text> ().text = "Health: " + player.GetComponent<PlayerManager>().Health.ToString ();
 		}
 	}
-
 
 	//Stair location manager. Stores the location of the stairs for use between floors.
 	public void SetStairLocation (Vector2 location)
