@@ -11,6 +11,11 @@
  * in seperate Vector2's but can easily be adapted to
  * Vector3's by the script utilizing those properties.
  * 
+ * 
+ * Edited by Alex Houser
+ * Implemented Animation Control for Movement, Attacks,
+ * and Death
+ * 
  * **************************************/
 
 using UnityEngine;
@@ -54,10 +59,16 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
     private Vector2 movementDirection;
     public Vector2 MovementDirection { get { return movementDirection; } }
 
+	// Reference to the Animator
+	private Animator anim;
+
     private void Awake()
     {
         // Reset player health. This may change with us having to store player health between scenes
         health = maxHealth;
+
+		// Grab a reference to the animator
+		anim = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
@@ -131,6 +142,9 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
         // Die!
         health = 0;
         Debug.Log("Player has died.");
+
+		// Set Animator to die
+		anim.SetTrigger("Death");
     }
 
     // Used to adjust the movement speed of the player
@@ -157,15 +171,20 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
     {
         // Take in the Movement axis from the controller
         movementDirection.Set(Input.GetAxis("Horizontal Movement"), Input.GetAxis("Vertical Movement"));
-        // TODO: Set Animator controller movement vars here
+
+        // Set Animator controller movement variables
+		anim.SetInteger("Walk Horizontal", (int)Mathf.Round(movementDirection.x));
+		anim.SetInteger ("Walk Vertical", (int)Mathf.Round (movementDirection.y));
     }
 
     void UpdateAttackVariables()
     {
         // Take in the Attack direction from the controller and normalize it into the four directions
         attackDirection = Utility.CutVector2(Input.GetAxis("Horizontal Interaction"), Input.GetAxis("Vertical Interaction"));
-        Debug.Log(attackDirection);
-        // TODO: Set Animator controller attack vars here
+        
+        // Set Animator controller attack variables
+		anim.SetInteger("Attack Horizontal", (int)attackDirection.x);
+		anim.SetInteger("Attack Vertical", (int)attackDirection.y);
     }
 
     void DebugControls() // Used to control input values mid game, should only be usable during development

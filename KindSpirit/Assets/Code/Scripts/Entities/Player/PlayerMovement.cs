@@ -39,29 +39,7 @@ public class PlayerMovement : MonoBehaviour
         // Apply motion
         playerRB.MovePosition(move);
 
-        // Flip Sprite appropriately
-        FlipSprite();
     }
 
-    //TODO: We'll probably need to toss this function and replace it with an animation function
-    void FlipSprite()
-    {
-
-
-        // Get the input for left/right motion
-
-        // If we aren't moving left or right ..
-        if (playerManager.MovementDirection.x == 0)
-        {
-            // .. don't do anything
-            return;
-        }
-        else // ..otherwise,
-        {
-            // .. change the sprite direction appropriately
-            playerSpriteRenderer.flipX = playerManager.MovementDirection.x > 0;
-        }
-
-    }
 
 }

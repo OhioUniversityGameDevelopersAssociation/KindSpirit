@@ -6,6 +6,11 @@
  * GameObject. This version handles, melee, ranged,
  * and an AOE Special
  * 
+ * 
+ * Edited by: Alex Houser
+ * Added animation scripts for attack, switch attack
+ * mode, and AOE
+ * 
  * *******************************************/
 using System.Collections;
 using UnityEngine;
@@ -34,10 +39,16 @@ public class PlayerInteractions : MonoBehaviour
     public GameObject rangedAttackPrefab;
     public float rangedShotForceMultiplier = 1.0f;
 
+	// Creates the animator variable
+	private Animator anim;
+
     // Use this for initialization
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
+
+		// Grabs the animator variable
+		anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -63,11 +74,12 @@ public class PlayerInteractions : MonoBehaviour
         // TODO: How do we want to handle these cooldowns?
         if (playerManager.AttackDirection != Vector2.zero && basicAttackCooldownRemaining == 0)
         {
-            Debug.Log("Attacking!!");
             if (meleeActive)
                 MeleeAttack();
             else
                 RangedAttack();
+
+			anim.SetTrigger ("Attack");
         }
     }
 
@@ -114,8 +126,10 @@ public class PlayerInteractions : MonoBehaviour
 
 
         // TEMPORARY SOLUTION, REMOVE WHEN ANIMATIONS COME IN //
-        StartCoroutine(TempAOECoroutine());
+        //StartCoroutine(TempAOECoroutine());
         ////////////////////////////////////////////////////////
+		anim.SetTrigger("AOE");
+
     }
 
 
@@ -132,6 +146,8 @@ public class PlayerInteractions : MonoBehaviour
     void CycleAttacks()
     {
         meleeActive = !meleeActive;
+
+		anim.SetBool ("isMelee", meleeActive);
     }
 
     // I hate making cooldowns, putting them in a region so I can minimize and not look at them
