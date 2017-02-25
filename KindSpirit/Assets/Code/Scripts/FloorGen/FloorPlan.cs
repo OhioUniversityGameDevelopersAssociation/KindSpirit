@@ -3,28 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FloorPlan : MonoBehaviour {
-
-	public List<GameObject> room_list = new List<GameObject>();
-	public List<GameObject> floor_rooms = new List<GameObject>();
-	GameObject[,] grid = new GameObject[5, 5];
-	int cur_x;
-	int cur_y;
-	public bool trigger_create;
 	
+	public List<GameObject> room_list = new List<GameObject>();   //List that holds the prefabs for all available rooms for this floor
+	public List<GameObject> floor_rooms = new List<GameObject>(); //List that holds a reference to each room instance on the floor
+
+	GameObject[,] grid = new GameObject[5, 5];                    //Grid that tells the game which room occupies each space of the floor
+
+	int cur_x;                                                    //values that iterate through the floor during generation
+	int cur_y;
+
+	public bool trigger_create;                                   //Set this to true to trigger floor initialization
+
+	GameObject gameManager;                                       //The object containing the gamemanager script.
+	GameObject cam;                                               //Reference to the camera
+
+	GameManager manscript;                                        //Reference to their scripts
+	camscript   cscript;
+
+	void Start()
+	{
+		//Create reference to game manager
+		gameManager = GameObject.Find ("GameManager");            
+		cam = GameObject.Find ("Main Camera");
+		manscript = gameManager.GetComponent<GameManager> ();
+		cscript = cam.GetComponent<camscript> ();
+	}
 	
 	void Update(){
-		if(trigger_create){
+		//Initialize floor when trigger is set
+		if(trigger_create){              
 			trigger_create = false;
 			Create_Floor();
 		}
 	}
-	
+
+	//Deactivate every room on the floor, except for the current room, which is the parameter, and it's neighbors
+	public void Deactivate_Floor(GameObject current){
+		RoomStats rs = current.GetComponent<RoomStats> ();
+		for (int r = 0; r < floor_rooms.Count; r += 1) {
+			GameObject cr = floor_rooms [r];
+			//If the room is the current room or a neighbor of the current room, only make sure it is active
+			if ((cr == current) || rs.neighbors.Contains (cr) || (cr.name == "starting_room")) {
+				cr.SetActive (true);
+			} else {
+				cr.SetActive (false);
+			}
+
+		}
+	}
+
+	//Floor initialization
 	void Create_Floor(){
-		Reset_Field ();
-		
+		//Make sure the floor is empty first
+		Reset_Field (); 
+
 		//Add the current room to the list
-		floor_rooms.Add(gameObject);
-		
+		floor_rooms.Add(gameObject); 
+		cur_y = 0;
+		cur_x = 0;
 		//Place Rooms all throughout the floor
 		while (cur_y < 5) {
 			while (cur_x < 5) {
@@ -51,13 +87,29 @@ public class FloorPlan : MonoBehaviour {
 		while(f < floor_rooms.Count){
 			RoomStats ch = floor_rooms[f].GetComponent<RoomStats>();
 			//If a room is not accessible, we have a problem, fix it
-			if(ch.accessible != 1){
-				
+			if (ch.accessible != 1) {
+				//STILL A WORK IN PROGRESS!!!
 			}
 			f += 1;
 		}
+		//Pick a random room to hold the exit stairs
+		bool exit_found = false;
+		while (!exit_found) {
+			int randx = Random.Range (0, 5);
+			int randy = Random.Range (0, 5);
+			//As long as the random room is legal, give it stairs
+			if (grid [randx, randy] != gameObject) {
+				grid [randx, randy].GetComponent<RoomStats> ().Set_Stairs ();
+				//Tell the game manager the location of the new stairs
+				manscript.SetStairLocation(new Vector2(randx,randy));
+				exit_found = true;
+			}
+		}
+		Deactivate_Floor (gameObject);
+		manscript.GenerationComplete ();
 	}
 
+	//Create a room instance and place it on the grid and in the scene
 	void Place_New_Room(){
 		bool placed = false;
 		int loop_time = 0;
@@ -93,6 +145,7 @@ public class FloorPlan : MonoBehaviour {
 		floor_rooms.Add(nroom);
 	}
 
+	//Clear the current floor for initialization
 	void Reset_Field(){
 		cur_x = 0;
 		cur_y = 0;
@@ -106,7 +159,13 @@ public class FloorPlan : MonoBehaviour {
 			ay = 0;
 			ax += 1;
 		}
-		grid [0, 0] = this.gameObject;
+		//Set this room in the grid according to the stairs location from the previous floor found in the game manager
+		int cx = (int)manscript.GetStairLocation().x;
+		int cy = (int)manscript.GetStairLocation().y;
+		gameObject.GetComponent<RoomStats> ().x = cx+1;
+		gameObject.GetComponent<RoomStats> ().y = cy+1;
+		gameObject.transform.position = new Vector3(cx*16,cy*-9,0);
+		grid [cx, cy] = this.gameObject;
 	}
 	//Place a room into the grid, but return false if there is no room to fit this room
 	bool Insert_Room(GameObject new_room){
@@ -135,7 +194,8 @@ public class FloorPlan : MonoBehaviour {
 			return true;
 		}
 	}	
-	
+
+	//Give the room a reference to it's neighbors
 	void Assign_Neighbors(GameObject room){
 		
 		RoomStats stats = room.GetComponent<RoomStats>();
@@ -263,7 +323,8 @@ public class FloorPlan : MonoBehaviour {
 			}
 		}
 	}
-		
+
+	//Recursive helper function for determining if every room is accessible
 	void Accessible_Recursion(GameObject room){
 		RoomStats stats = room.GetComponent<RoomStats>();
 		//Set Current room to accessible
