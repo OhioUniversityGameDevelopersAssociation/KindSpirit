@@ -6,6 +6,7 @@ public class RangedAttackBox : AttackBox {
 
     private int attackPower;
     private int lifeSpan;
+	private string ignoreTag = "";
 
     void Start()
     {
@@ -14,9 +15,23 @@ public class RangedAttackBox : AttackBox {
 
     protected override void OnCollisionEnter2D(Collision2D col)
     {
-        base.OnCollisionEnter2D(col);
-        Destroy(gameObject);
+		if (ignoreTag != "" && ignoreTag == col.transform.tag)
+			return;
+		base.OnCollisionEnter2D (col);
+		Destroy (gameObject);
     }
+
+	protected void OnTriggerEnter2D(Collider2D col)//collide with Anton's trigger collider
+	{
+		if (ignoreTag != "" && ignoreTag == col.transform.tag)
+			return;
+		IDamagable<int> other = col.gameObject.GetComponent<IDamagable<int>>();
+		if (col.gameObject.tag != attacker.ToString() && other != null)
+		{
+			Attack(other);
+		}
+		Destroy (gameObject);
+	}
 
     protected override void Attack(IDamagable<int> other)
     {
@@ -32,4 +47,9 @@ public class RangedAttackBox : AttackBox {
     {
         lifeSpan = newLifeSpan;
     }
+
+	public void SetIgnoreCollisions(string tag)
+	{
+		ignoreTag = tag;
+	}
 }

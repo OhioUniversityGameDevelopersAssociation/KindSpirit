@@ -14,7 +14,7 @@
  * **************************************/
 
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable<int>
 {
 
@@ -131,6 +131,7 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
         // Die!
         health = 0;
         Debug.Log("Player has died.");
+		SceneManager.LoadScene ("GameOver");
     }
 
     // Used to adjust the movement speed of the player
@@ -164,7 +165,7 @@ public class PlayerManager : MonoBehaviour, IKillable, IDamagable<int>, Healable
     {
         // Take in the Attack direction from the controller and normalize it into the four directions
         attackDirection = Utility.CutVector2(Input.GetAxis("Horizontal Interaction"), Input.GetAxis("Vertical Interaction"));
-        Debug.Log(attackDirection);
+        //Debug.Log(attackDirection);
         // TODO: Set Animator controller attack vars here
     }
 
