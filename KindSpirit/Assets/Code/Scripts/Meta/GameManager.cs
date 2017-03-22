@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		DontDestroyOnLoad (gameObject);
+<<<<<<< HEAD
+		SetStairLocation (new Vector2 (0, 0));
+=======
+>>>>>>> master
 	}
 
 	public void FloorCompleted()
