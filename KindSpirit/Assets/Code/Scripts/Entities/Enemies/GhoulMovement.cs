@@ -2,56 +2,71 @@
 using System.Collections;
 
 public class GhoulMovement : ScriptedEnemyBehaviorAbstract {
-	private float rand1, rand2;
     private int ghoulHealth = 10;
+    private int amountOfShots = 0;
+    private int roomWidth;
+    private int roomLength;
 	private float timeToWait;
     private float goalTime = 5f;
 	private float lifeSpan = 2f;
-	//private float nextFire;
+	private float nextFire;
+    private float targetX, targetY;
+    private float minX;// = 1.5f;
+    private float minY;// = -7.5f;
+    private float maxX;// = 14.5f;
+    private float maxY;// = -1.5f;
     private SpriteRenderer spriteR;
-	//public Transform player;
-    //public GameObject enemyBoundry;
-    //public float projectileSpeed;
-	//public float fireRate;
-	//public Transform shotSpawn;
-	//public GameObject shot;
+    public int attackPower;
+	public Transform player;
+	public Transform shotSpawn;
+	public GameObject shot;
 
     new public virtual void Start() {
-        //Vector2 dir;
-
         spriteR = GetComponent<SpriteRenderer>();
-        //player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        //Determines the direction the projectile will travel
-        //dir = player.position - transform.position;
+        roomWidth = transform.parent.GetComponent<RoomStats>().width;
+        roomLength = transform.parent.GetComponent<RoomStats>().length;
+        minX = 1.5f;
+        maxY = -1.5f;
+        maxX = (roomLength * 16) - 1.5f;
+        minY = (roomWidth * -9) + 1.5f;
 
-        //Moves the projectile in the position of the players position
-        //GetComponent<Rigidbody>().velocity = transform.forward * projectileSpeed;
     }
 
 	new public virtual void Update () {
-        rand1 = Random.Range(1.5f, 14.5f);
-		rand2 = Random.Range(-7.5f, -1.5f);
+        //Gets a random value for the ghoul to appear next
+        targetX = Random.Range(minX, maxX);
+		targetY = Random.Range(minY, maxY);
+
+        //Waits for 5 seconds, then the ghoul will dissapear,
+        //then reappears after another 5 seconds
         if (timeToWait > goalTime)
         {
-           /* if (Time.time > nextFire)
-            {
-                nextFire = Time.time + fireRate;
-                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-
-                //plays the audio of the projectile being fired
-                GetComponent<AudioSource>().Play();
-
-                //Destroys the projectile after its lifespan
-                Destroy(this.gameObject, lifeSpan);
-            }*/
             spriteR.enabled = false;
             
             if (timeToWait > goalTime + 5)
             {
-                transform.position = new Vector2(rand1, rand2);
+                transform.position = new Vector2(targetX, targetY);
+                if (transform.position.x < player.transform.position.x)
+                {
+                    transform.localRotation = Quaternion.Euler(0f, 180f, 0f);
+                }
+                else if (transform.position.x > player.transform.position.x)
+                {
+                    transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+                }
                 spriteR.enabled = true;
                 timeToWait = 0f;
+                amountOfShots = 0;
+            }
+        }
+        else if (timeToWait > goalTime - 1)
+        {
+            if (amountOfShots < 1)
+            {
+                amountOfShots++;
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             }
         }
             
@@ -59,8 +74,30 @@ public class GhoulMovement : ScriptedEnemyBehaviorAbstract {
         //if enemy is hit then it loses life
 	}
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            //Decreases the players health
+            other.gameObject.GetComponent<PlayerManager>().Damage(attackPower);
+        }
+    }
+
+    //Destroys the ghoul
     void Kill()
     {
+        ghoulHealth = 0;   
         Destroy(this.gameObject);
+        Debug.Log("The Ghoul is dead");
+    }
+
+    //Takes away health if Ghoul is hit
+    void Damage(int amountOfDamage)
+    {
+        ghoulHealth -= amountOfDamage;
+        if (ghoulHealth <= 0)
+        {
+            Kill();
+        }
     }
 }
