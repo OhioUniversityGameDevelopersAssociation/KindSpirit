@@ -8,10 +8,9 @@ public class doorscript : MonoBehaviour {
 	BoxCollider2D body;
 	public int dir_state= 1;
 	GameObject cam;
-<<<<<<< HEAD
+
 	FloorPlan the_floor;
-=======
->>>>>>> master
+
 
 	// Use this for initialization
 	void Start () {
@@ -19,10 +18,8 @@ public class doorscript : MonoBehaviour {
 		body = gameObject.GetComponent<BoxCollider2D>();
 		gameObject.tag = "wall";
 		cam = GameObject.Find("Main Camera");
-<<<<<<< HEAD
 		the_floor = GameObject.Find ("starting_room").GetComponent<FloorPlan> ();
-=======
->>>>>>> master
+
 	}
 	
 	// Update is called once per frame
@@ -45,10 +42,7 @@ public class doorscript : MonoBehaviour {
 			else if(GameObject.Find("Main Camera").GetComponent<camscript>().state!=dir_state){
 				cam.GetComponent<camscript>().current_room = transform.parent.gameObject;
 				cam.GetComponent<camscript>().SetStats();
-<<<<<<< HEAD
 				the_floor.Deactivate_Floor (transform.parent.gameObject);
-=======
->>>>>>> master
 			}
 		}
 	}
