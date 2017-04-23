@@ -11,11 +11,10 @@ public class FloorPlan : MonoBehaviour {
 
 	int cur_x;                                                    //values that iterate through the floor during generation
 	int cur_y;
-<<<<<<< HEAD
+
 
 	public bool trigger_create;                                   //Set this to true to trigger floor initialization
 
-	GameObject gameManager;                                       //The object containing the gamemanager script.
 	GameObject cam;                                               //Reference to the camera
 
 	GameManager manscript;                                        //Reference to their scripts
@@ -28,15 +27,10 @@ public class FloorPlan : MonoBehaviour {
 		cam = GameObject.Find ("Main Camera");
 		manscript = gameManager.GetComponent<GameManager> ();
 		cscript = cam.GetComponent<camscript> ();
-=======
-	public bool trigger_create;
+	}
+		
 	GameObject gameManager; //The object containing the gamemanager script.
 
-	void Start()
-	{
-		gameManager = GameObject.Find ("GameManager");
->>>>>>> master
-	}
 	
 	void Update(){
 		//Initialize floor when trigger is set
@@ -101,7 +95,6 @@ public class FloorPlan : MonoBehaviour {
 			}
 			f += 1;
 		}
-<<<<<<< HEAD
 		//Pick a random room to hold the exit stairs
 		bool exit_found = false;
 		while (!exit_found) {
@@ -117,9 +110,7 @@ public class FloorPlan : MonoBehaviour {
 		}
 		Deactivate_Floor (gameObject);
 		manscript.GenerationComplete ();
-=======
 		gameManager.GetComponent<GameManager> ().GenerationComplete ();
->>>>>>> master
 	}
 
 	//Create a room instance and place it on the grid and in the scene
