@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: b58d594440ff56d4a8e2f34199613fe5
+timeCreated: 1492973044
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Spooky_Lantern_Movement_SpreadSheet_0
+    21300002: Spooky_Lantern_Movement_SpreadSheet_1
+    21300004: Spooky_Lantern_Movement_SpreadSheet_2
+    21300006: Spooky_Lantern_Movement_SpreadSheet_3
+    21300008: Spooky_Lantern_Movement_SpreadSheet_4
+    21300010: Spooky_Lantern_Movement_SpreadSheet_5
+    21300012: Spooky_Lantern_Movement_SpreadSheet_6
+    21300014: Spooky_Lantern_Movement_SpreadSheet_7
+    21300016: Spooky_Lantern_Movement_SpreadSheet_8
+    21300018: Spooky_Lantern_Movement_SpreadSheet_9
+    21300020: Spooky_Lantern_Movement_SpreadSheet_10
+    21300022: Spooky_Lantern_Movement_SpreadSheet_11
+    21300024: Spooky_Lantern_Movement_SpreadSheet_12
+    21300026: Spooky_Lantern_Movement_SpreadSheet_13
+    21300028: Spooky_Lantern_Movement_SpreadSheet_14
+    21300030: Spooky_Lantern_Movement_SpreadSheet_15
+    21300032: Spooky_Lantern_Movement_SpreadSheet_16
+    21300034: Spooky_Lantern_Movement_SpreadSheet_17
+    21300036: Spooky_Lantern_Movement_SpreadSheet_18
+    21300038: Spooky_Lantern_Movement_SpreadSheet_19
+    21300040: Spooky_Lantern_Movement_SpreadSheet_20
+    21300042: Spooky_Lantern_Movement_SpreadSheet_21
+    21300044: Spooky_Lantern_Movement_SpreadSheet_22
+    21300046: Spooky_Lantern_Movement_SpreadSheet_23
+    21300048: Spooky_Lantern_Movement_SpreadSheet_24
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 708
+        width: 162
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 708
+        width: 161
+        height: 327
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_2
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 708
+        width: 161
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_3
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 708
+        width: 161
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_4
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 708
+        width: 163
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 708
+        width: 161
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1265
+        y: 708
+        width: 161
+        height: 369
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_7
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 708
+        width: 161
+        height: 360
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 708
+        width: 161
+        height: 352
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_9
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 351
+        width: 162
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_10
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 351
+        width: 161
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_11
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 348
+        width: 161
+        height: 329
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_12
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 351
+        width: 161
+        height: 317
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_13
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 351
+        width: 162
+        height: 309
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 351
+        width: 161
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_15
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 351
+        width: 164
+        height: 293
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_16
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 351
+        width: 161
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_17
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 351
+        width: 161
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_18
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 12
+        width: 161
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_19
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 12
+        width: 161
+        height: 277
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_20
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 12
+        width: 164
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_21
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 12
+        width: 161
+        height: 296
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_22
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 12
+        width: 161
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_23
+      rect:
+        serializedVersion: 2
+        x: 1073
+        y: 12
+        width: 161
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spooky_Lantern_Movement_SpreadSheet_24
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 12
+        width: 161
+        height: 320
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
